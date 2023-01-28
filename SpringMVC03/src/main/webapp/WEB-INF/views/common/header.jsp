@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="${contextPath}/">jun_seok1925</a>
+      <a class="navbar-brand" href="${contextPath}/">@jun_seok1925</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -37,7 +37,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">회원정보수정</a></li>
             <li><a href="#">프로필수정</a></li>
-            <li><a href="#">로그아웃</a></li>
+            <li><a href="${contextPath}/memLogout.do">로그아웃</a></li>
           </ul>
         </li>
       </ul>
