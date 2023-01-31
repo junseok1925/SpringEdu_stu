@@ -200,7 +200,7 @@
                </table>
     	</form>
     </div>
-    <div class="panel-footer">인프런_스프1탄_지우든</div>
+    <div class="panel-footer">jun_seok1925</div>
   </div>
 </div>
 

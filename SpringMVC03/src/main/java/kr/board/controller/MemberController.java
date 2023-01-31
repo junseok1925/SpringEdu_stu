@@ -84,10 +84,27 @@ public class MemberController {
 	public String memLoginForm() {
 		return "member/memLoginForm"; //memLoginFrom.jsp
 	}
-	
-	
-	
-	
-	
-	
+	//로그인 기능 구현
+	@RequestMapping("/memLogin.do")
+	public String memLogin(Member m, RedirectAttributes rttr, HttpSession session) {
+		if(m.getMemID()==null || m.getMemID().equals("")||
+		   m.getMemPassword()==null || m.getMemPassword().equals("")){
+			   rttr.addFlashAttribute("msgType","실패 메세지");
+			   rttr.addFlashAttribute("msg","모든 내용을 입력해주세요.");
+			   return "redirect:/memLoginForm.do"; 
+		   }
+			Member mvo = memberMapper.memLogin(m);
+			if(mvo!=null) { //로그인에 성공
+				rttr.addFlashAttribute("msgType","성공 메세지");
+			    rttr.addFlashAttribute("msg","로그인에 성공했습니다.");
+			    session.setAttribute("mvo", mvo); //${!empty mvo}
+			    return "redirect:/"; //로그인 성공시 메인으로 이동
+			}else { //로그인에 실패
+				rttr.addFlashAttribute("msgType","실패 메세지");
+			    rttr.addFlashAttribute("msg","다시 로그인에 해주세요.");
+				return "redirect:/memLoginForm.do";
+
+			}
+	}
 }
+	

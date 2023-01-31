@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +23,16 @@
 <body>
 	<div class="container">
 	<jsp:include page="common/header.jsp"/>
+	
+	  <c:if test="${empty mvo}"> <!-- 로그인을 하지않았을때 -->
 	  <h3>준석이의 스프링으로 웹사이트구현하기</h3>
+	  </c:if>
+	   <c:if test="${!empty mvo}"> <!-- 로그인을 하지않았을때 -->
+	  <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
+	  </c:if>
+	  
 	  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-	  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+	  <p>jun_seok1925 게시판,로그인,회원가입구현하기</p>
 	</div>
 	
 			<!-- 회원가입성공 메세지를 출력(modal) -->

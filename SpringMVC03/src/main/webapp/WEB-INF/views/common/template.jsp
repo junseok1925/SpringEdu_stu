@@ -19,7 +19,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">Panel Heading</div>
     <div class="panel-body">Panel Content</div>
-    <div class="panel-footer">G.W S/P NO.1</div>
+    <div class="panel-footer">jun_seok1925</div>
   </div>
 </div>
 
