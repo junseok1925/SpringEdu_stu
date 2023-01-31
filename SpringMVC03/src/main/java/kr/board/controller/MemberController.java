@@ -40,6 +40,7 @@ public class MemberController {
 	@RequestMapping("/memRegister.do")
 	   public String memRegister(Member m, String memPassword1,String memPassword2,
 			   					 RedirectAttributes rttr,HttpSession session) {
+		
 	      if(m.getMemID() == null || m.getMemID().equals("") ||
 	         memPassword1 == null || memPassword1.equals("") ||
 	         memPassword2 == null || memPassword2.equals("") ||
@@ -106,5 +107,48 @@ public class MemberController {
 
 			}
 	}
+	//회원정보수정화면
+	@RequestMapping("/memUpdateForm.do")
+	public String memUpdateForm() {
+		return"member/memUpdateForm";
+	}
+	
+	//회원정보수정
+	@RequestMapping("/memUpdate.do")
+	public String memUpdate(Member m, RedirectAttributes rttr,
+			String memPassword1, String memPassword2, HttpSession session) {
+		
+		 if(m.getMemID() == null || m.getMemID().equals("") ||
+		         memPassword1 == null || memPassword1.equals("") ||
+		         memPassword2 == null || memPassword2.equals("") ||
+		         m.getMemName() == null || m.getMemName().equals("") ||
+		         m.getMemAge() == 0 ||
+		         m.getMemGender() == null || m.getMemGender().equals("") ||
+		         m.getMemEmail() == null || m.getMemEmail().equals("")) {
+		         //누락메세지를 가지고 가기? => 객체바인딩(Model,HttpServletRequest, HttpSession)
+		         rttr.addFlashAttribute("msgType", "실패 메세지");
+		         rttr.addFlashAttribute("msg", "모든 내용을 입력하세요.");
+		         return "redirect:/memUpdateForm.do"; //${msgType}, ${msg}
+		      }
+		      if(!memPassword1.equals(memPassword2)) {
+		    	  rttr.addFlashAttribute("msgType", "실패 메세지");
+			      rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
+			      return "redirect:/memUpdateForm.do"; //${msgType}, ${msg}
+		      }
+		      m.setMemProfile(""); //사진이미지는 없다는 의미 ""
+		      //회원을 수정저장하기
+		      int result = memberMapper.memUpdate(m);
+		      if(result == 1) { //수정 성공 메세지
+		         rttr.addFlashAttribute("msgType", "성공 메세지");
+		         rttr.addFlashAttribute("msg", "회원정보 수정을 완료했습니다");
+		         //회원수정이 성공하면 => 로그인처리하기
+		         session.setAttribute("mvo", m); //${!empty m}
+		         return "redirect:/";
+		      } else { //수정 실패 메세지
+		         rttr.addFlashAttribute("msgType", "실패 메세지");
+		         rttr.addFlashAttribute("msg", "회원정보 수정에 실패했습니다.");
+		         return "redirect:/memUpdateForm.do";
+		      }
+		}
 }
 	

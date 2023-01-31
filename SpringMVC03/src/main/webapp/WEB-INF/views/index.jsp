@@ -31,7 +31,37 @@
 	  <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
 	  </c:if>
 	  
-	  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
+	  <div class="panel panel-default">
+	  	<div>
+	  		<img src="${contextPath}/resources/images/main.png"style="width: 100%; height: 500px"/>
+	  	</div>
+	    <div class="panel-body">
+		<!-- ====================tab메뉴===================== -->
+			<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			  <li><a data-toggle="tab" href="#menu1">게시판</a></li>
+			  <li><a data-toggle="tab" href="#menu2">공지사항</a></li>
+			</ul>
+			
+			<div class="tab-content">
+			  <div id="home" class="tab-pane fade in active">
+			    <h3>HOME</h3>
+			    <p>Some content.</p>
+			  </div>
+			  <div id="menu1" class="tab-pane fade">
+			    <h3>게시판</h3>
+			    <p>Some content in menu 1.</p>
+			  </div>
+			  <div id="menu2" class="tab-pane fade">
+			    <h3>공지사항</h3>
+			    <p>Some content in menu 2.</p>
+			  </div>
+			</div>
+		<!-- ====================tab메뉴 끝===================== -->
+		</div>
+	    <div class="panel-footer">jun_seok1925</div>
+  	 </div>
+	  
 	  <p>jun_seok1925 게시판,로그인,회원가입구현하기</p>
 	</div>
 	
