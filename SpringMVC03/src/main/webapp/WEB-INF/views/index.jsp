@@ -33,7 +33,7 @@
 	  
 	  <div class="panel panel-default">
 	  	<div>
-	  		<img src="${contextPath}/resources/images/main.png"style="width: 100%; height: 500px"/>
+	  		<img src="${contextPath}/resources/images/main.jpg"style="width: 100%; height: 500px"/>
 	  	</div>
 	    <div class="panel-body">
 		<!-- ====================tab메뉴===================== -->

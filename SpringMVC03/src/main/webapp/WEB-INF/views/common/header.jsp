@@ -24,11 +24,11 @@
             <li><a href="${contextPath}/memLoginForm.do"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
             <li><a href="${contextPath}/memJoin.do"><span class="glyphicon glyphicon-user"></span>회원가입</a></li>
       </ul>
-      </c:if>	e
+      </c:if>
       <c:if test="${!empty mvo}">
       <ul class="nav navbar-nav navbar-right">
             <li><a href="${contextPath}/memUpdateForm.do"><span class="	glyphicon glyphicon-repeat"></span>회원정보수정</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-picture"></span>프로필사진 등록</a></li>
+            <li><a href="${contextPath}/memImageForm.do"><span class="glyphicon glyphicon-picture"></span>프로필사진 등록</a></li>
             <li><a href="${contextPath}/memLogout.do"><span class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
       </ul>
       </c:if>
