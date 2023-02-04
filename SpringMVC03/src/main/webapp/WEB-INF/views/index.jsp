@@ -25,20 +25,10 @@
 	<jsp:include page="common/header.jsp"/>
 	
 	  <!-- 로그인을 하지않았을때 -->
-	  <c:if test="${empty mvo}"> 
-		  <h3>준석이의 스프링으로 웹사이트구현하기</h3>
-	  </c:if>
+	  
 	  
 	  <!-- 로그인을 하지않았을때 -->
-	   <c:if test="${!empty mvo}"> 
-	     <c:if test="${mvo.memProfile eq ''}">
-            <img src="${contextPath}/resources/images/person.PNG" style="width: 50px"; height="50px"/>
-         </c:if>
-         <c:if test="${mvo.memProfile ne ''}">
-            <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 100px"; height="100px"/>
-         </c:if>
-            <label><strong>${mvo.memName}님 방문을 환영합니다.</strong></label>
-	  </c:if>
+	
 	  
 	  <div class="panel panel-default">
 	  	<div>

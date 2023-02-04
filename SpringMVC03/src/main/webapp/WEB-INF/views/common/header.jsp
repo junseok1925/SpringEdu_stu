@@ -26,11 +26,25 @@
       </ul>
       </c:if>
       <c:if test="${!empty mvo}">
-      <ul class="nav navbar-nav navbar-right">
-            <li><a href="${contextPath}/memUpdateForm.do"><span class="	glyphicon glyphicon-repeat"></span>회원정보수정</a></li>
-            <li><a href="${contextPath}/memImageForm.do"><span class="glyphicon glyphicon-picture"></span>프로필사진 등록</a></li>
-            <li><a href="${contextPath}/memLogout.do"><span class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
-      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	            <li><a href="${contextPath}/memUpdateForm.do"><span class="	glyphicon glyphicon-repeat"></span>회원정보수정</a></li>
+	            <li><a href="${contextPath}/memImageForm.do"><span class="glyphicon glyphicon-picture"></span>프로필사진 등록</a></li>
+	            <li style="border-right: 2px solid lightgray;"><a href="${contextPath}/memLogout.do"><span class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+	            
+	            <c:if test="${!empty mvo}"> 
+				     <c:if test="${mvo.memProfile eq ''}">
+			            <li style="margin-left: 5px; margin-right: 5px;"><img class="img-circle" src="${contextPath}/resources/images/person.PNG" style="width: 50px; height: 50px; padding: 5px"/>
+			            	<strong style="margin-left: 5px">${mvo.memName} Nice to meet you, bro.</strong>
+			            </li>
+			         </c:if>
+			         <c:if test="${mvo.memProfile ne ''}">
+			            <li style="margin-left: 5px; margin-right: 5px;"><img class="img-circle" src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px; height: 50px; padding: 5px"/>
+			           		<strong style="margin-left: 5px">${mvo.memName} Nice to meet you, bro.</strong>
+			            </li>
+			         </c:if>
+		 		</c:if>
+		  
+	      </ul>
       </c:if>
     </div>
   </div>

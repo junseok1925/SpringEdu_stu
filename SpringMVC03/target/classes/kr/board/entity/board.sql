@@ -32,3 +32,5 @@ create table mem_tbl(
 );
 
 select * from mem_tbl;
+select * from myboard;
+drop table myboard;
