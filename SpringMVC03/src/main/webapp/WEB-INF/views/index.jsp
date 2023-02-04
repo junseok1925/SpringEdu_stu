@@ -31,11 +31,11 @@
 	  
 	  <!-- 로그인을 하지않았을때 -->
 	   <c:if test="${!empty mvo}"> 
-	     <c:if test="${mvo.memProfile eq '' }">
-            <img src="${contextPath}/resources/images/person.png" style="width: 50px"; height="50px"/>
+	     <c:if test="${mvo.memProfile eq ''}">
+            <img src="${contextPath}/resources/images/person.PNG" style="width: 50px"; height="50px"/>
          </c:if>
-         <c:if test="${mvo.memProfile ne '' }">
-            <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px"; height="50px"/>
+         <c:if test="${mvo.memProfile ne ''}">
+            <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 100px"; height="100px"/>
          </c:if>
             <label><strong>${mvo.memName}님 방문을 환영합니다.</strong></label>
 	  </c:if>
@@ -44,8 +44,9 @@
 	  	<div>
 	  		<img src="${contextPath}/resources/images/main.png"style="width: 100%; height: 500px"/>
 	  	</div>
-	    <div class="panel-body">
+	  	
 		<!-- ====================tab메뉴===================== -->
+	    <div class="panel-body">
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 			  <li><a data-toggle="tab" href="#menu1">게시판</a></li>
