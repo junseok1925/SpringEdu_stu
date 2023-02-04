@@ -24,16 +24,25 @@
 	<div class="container">
 	<jsp:include page="common/header.jsp"/>
 	
-	  <c:if test="${empty mvo}"> <!-- 로그인을 하지않았을때 -->
-	  <h3>준석이의 스프링으로 웹사이트구현하기</h3>
+	  <!-- 로그인을 하지않았을때 -->
+	  <c:if test="${empty mvo}"> 
+		  <h3>준석이의 스프링으로 웹사이트구현하기</h3>
 	  </c:if>
-	   <c:if test="${!empty mvo}"> <!-- 로그인을 하지않았을때 -->
-	  <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
+	  
+	  <!-- 로그인을 하지않았을때 -->
+	   <c:if test="${!empty mvo}"> 
+	     <c:if test="${mvo.memProfile eq '' }">
+            <img src="${contextPath}/resources/images/person.png" style="width: 50px"; height="50px"/>
+         </c:if>
+         <c:if test="${mvo.memProfile ne '' }">
+            <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px"; height="50px"/>
+         </c:if>
+            <label><strong>${mvo.memName}님 방문을 환영합니다.</strong></label>
 	  </c:if>
 	  
 	  <div class="panel panel-default">
 	  	<div>
-	  		<img src="${contextPath}/resources/images/main.jpg"style="width: 100%; height: 500px"/>
+	  		<img src="${contextPath}/resources/images/main.png"style="width: 100%; height: 500px"/>
 	  	</div>
 	    <div class="panel-body">
 		<!-- ====================tab메뉴===================== -->

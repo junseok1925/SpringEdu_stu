@@ -11,6 +11,26 @@ public class Board {
 	private String indate;	//작성일	
 	private int count;	//조회수
 	//setter, getter
+	public int getIdx() {
+		return idx;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public String getIndate() {
+		return indate;
+	}
+	public int getCount() {
+		return count;
+	}
+	
+	
 	
 }
 
