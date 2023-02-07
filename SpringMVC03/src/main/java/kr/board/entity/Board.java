@@ -5,6 +5,7 @@ import lombok.Data;
 @Data //- Lombok API
 public class Board {
 	private int idx; //번호
+	private String memID; //회원ID -> 같은id로 쓴 게시판 수정할 수 있게
 	private String title; //제목
 	private String content; //내용
 	private String writer; //작성자
@@ -46,6 +47,14 @@ public class Board {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public String getMemID() {
+		return memID;
+	}
+	public void setMemID(String memID) {
+		this.memID = memID;
+	}
+	
+	
 	
 	
 }

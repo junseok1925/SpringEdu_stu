@@ -34,12 +34,12 @@
 	            <c:if test="${!empty mvo}"> 
 				     <c:if test="${mvo.memProfile eq ''}">
 			            <li style="margin-left: 5px; margin-right: 5px;"><img class="img-circle" src="${contextPath}/resources/images/person.PNG" style="width: 50px; height: 50px; padding: 5px"/>
-			            	<strong style="margin-left: 5px">${mvo.memName} Nice to meet you, bro.</strong>
+			            	<strong style="margin-left: 5px">${mvo.memName} Nice to meet you.</strong>
 			            </li>
 			         </c:if>
 			         <c:if test="${mvo.memProfile ne ''}">
 			            <li style="margin-left: 5px; margin-right: 5px;"><img class="img-circle" src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px; height: 50px; padding: 5px"/>
-			           		<strong style="margin-left: 5px">${mvo.memName} Nice to meet you, bro.</strong>
+			           		<strong style="margin-left: 5px">${mvo.memName} Nice to meet you.</strong>
 			            </li>
 			         </c:if>
 		 		</c:if>

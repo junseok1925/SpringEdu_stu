@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Spring MVC03</title>
+  <title>😊회원게시판😊</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -48,25 +48,36 @@
             listHtml+="<td>내용</td>";
             listHtml+="<td colspan='4'>";
             listHtml+="<textarea id='ta"+ obj.idx +"' readonly rows='7' class='form-control'></textarea>";
+            if("${mvo.memID}" == obj.memID){ //작성자 아이디가 같아야지 수정,석제 가능
             listHtml+="<br/>";
             listHtml+="<span id='ub"+obj.idx+"'><button class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정화면</button></span>&nbsp";
             listHtml+="<button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
+            }else{
+            listHtml+="<br/>";
+            listHtml+="<span id='ub"+obj.idx+"'><button disabled class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정화면</button></span>&nbsp";
+            listHtml+="<button disabled class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";	
+            }
             listHtml+="</td>";
             listHtml+="</tr>";
             
        });
+       //로그인을 해야 보이는 부분
+       if(${!empty mvo}){
         listHtml+="<tr>";
     	listHtml+="<td colspan='5'>";
     	listHtml+="<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
     	listHtml+="</td>";
     	listHtml+="</tr>";
+       }
         listHtml+="</table>";
          $("#view").html(listHtml);
+       
 
       	$("#view").css("display", "block");
  		$("#wform").css("display", "none");
 		
 	}
+       
   	
   	function goForm() {
 		$("#view").css("display", "none");
@@ -168,12 +179,13 @@
 
 <div class="container">
 <jsp:include page="../common/header.jsp"/>
-  <h2>Spring MVC03</h2>
+  <h2>😊회원게시판😊</h2>
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
-    <div class="panel-body" id="view">Panel Content</div>
+    <div class="panel-body" id="view">회원전용게시판입니다 로그인을 해주세요.</div>
     <div class="panel-body" id="wform" style="display: none">
     	<form id="frm">
+    	<input type="hidden" name="memID" id="memID" value="${mvo.memID}"/> 
 	    	   <table class="table">
                   <tr>
                      <td>제목</td>
@@ -186,8 +198,8 @@
                   </tr>
                   
                   <tr>
-                     <td>작성자</td>
-                     <td><input type="text"  id="writer" name="writer" class="form-control"/></td>
+                     <td>작성자</td> 
+                     <td><input type="text" id="writer" name="writer" class="form-control" value="${mvo.memName}" readonly="readonly"/></td>
                   </tr>
                   
                   <tr>
